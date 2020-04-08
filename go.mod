@@ -1,4 +1,4 @@
-module github.com/cumulusware/distuvx
+module github.com/goinvest/distuvx
 
 go 1.14
 

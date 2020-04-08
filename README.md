@@ -41,11 +41,11 @@ $ make cover
 [LICENSE][] file for more information.
 
 [distuv]: https://pkg.go.dev/gonum.org/v1/gonum@v0.7.0/stat/distuv
-[distuvx]: https://github.com/cumulusware/distuvx
-[godoc badge]: https://godoc.org/github.com/cumulusware/distuvx?status.svg
-[godoc link]: https://godoc.org/github.com/cumulusware/distuvx
-[LICENSE]: https://github.com/cumulusware/distuvx/blob/master/LICENSE
+[distuvx]: https://github.com/goinvest/distuvx
+[godoc badge]: https://godoc.org/github.com/goinvest/distuvx?status.svg
+[godoc link]: https://godoc.org/github.com/goinvest/distuvx
+[LICENSE]: https://github.com/goinvest/distuvx/blob/master/LICENSE
 [license badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [pull request]: https://help.github.com/articles/using-pull-requests
-[report badge]: https://goreportcard.com/badge/github.com/cumulusware/distuvx
-[report card]: https://goreportcard.com/report/github.com/cumulusware/distuvx
+[report badge]: https://goreportcard.com/badge/github.com/goinvest/distuvx
+[report card]: https://goreportcard.com/report/github.com/goinvest/distuvx
