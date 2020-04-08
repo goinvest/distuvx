@@ -40,6 +40,14 @@ func NewPERT(min, max, mode float64, src rand.Source) PERT {
 	}
 }
 
+// NewPERTOne create a new PERT distribution one time. Thereafter, the same
+// fixed value is always returned.
+func NewPERTOne(a, b, c float64, src rand.Source) Fixed {
+	pert := NewPERT(a, b, c, src)
+	val := pert.Rand()
+	return NewFixed(val)
+}
+
 func checkPERTParameters(min, max, mode float64) {
 	if min >= max {
 		panic("pert: constraint of min < max violated")
