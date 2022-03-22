@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The distuvx developers. All rights reserved.
+// Copyright (c) 2020-2022 The distuvx developers. All rights reserved.
 // Project site: https://github.com/goinvest/distuvx
 // Use of this source code is governed by a MIT-style license that
 // can be found in the LICENSE file for the project.
