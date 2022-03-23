@@ -161,6 +161,22 @@ func TestNewBeta4(t *testing.T) {
 			xCDF:          0.5,
 			wantNumParams: 4,
 		},
+		{
+			alpha:         2.0,
+			beta:          2.0,
+			min:           9.0,
+			max:           10.0,
+			seed:          1234,
+			wantRand:      9.336436,
+			wantStdDev:    0.223607,
+			wantMode:      9.5,
+			wantMean:      9.5,
+			wantProb:      1.5,
+			yProb:         9.5,
+			wantCDF:       0.5,
+			xCDF:          9.5,
+			wantNumParams: 4,
+		},
 	}
 	for i, tc := range testCases {
 		name := fmt.Sprintf("new_beta4_%d", i)
