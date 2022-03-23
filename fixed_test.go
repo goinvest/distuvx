@@ -7,7 +7,6 @@ package distuvx
 
 import (
 	"fmt"
-	"math"
 	"testing"
 )
 
@@ -29,29 +28,5 @@ func TestNewFixed(t *testing.T) {
 				assertFloat64(t, name, got, tc.num, 0.0001)
 			}
 		})
-	}
-}
-
-func assertInt(t *testing.T, label string, got, want int) {
-	if got != want {
-		t.Errorf("\t got = %d %s\n\t\twant = %d", got, label, want)
-	}
-}
-
-func assertFloat64(t *testing.T, label string, got, want, tolerance float64) {
-	if diff := math.Abs(want - got); diff >= tolerance {
-		t.Errorf("\t got = %f %s\n\t\t\twant = %f", got, label, want)
-	}
-}
-
-func assertBool(t *testing.T, label string, got, want bool) {
-	if got != want {
-		t.Errorf("\t got = %t %s\n\t\t\twant = %t", got, label, want)
-	}
-}
-
-func assertString(t *testing.T, label string, got, want string) {
-	if got != want {
-		t.Errorf("\t got = %s %s\n\t\t\twant = %s", got, label, want)
 	}
 }

@@ -10,8 +10,9 @@ import (
 	"gonum.org/v1/gonum/stat/distuv"
 )
 
-// NewTriangleOne create a new triangle distribution one time. Thereafter, the
-// same fixed value is always returned.
+// NewTriangleOne create a new triangle distribution one time with lower linit
+// a, upper limit b, and mode c. Thereafter, the same fixed value is always
+// returned.
 func NewTriangleOne(a, b, c float64, src rand.Source) Fixed {
 	triangle := distuv.NewTriangle(a, b, c, src)
 	val := triangle.Rand()
