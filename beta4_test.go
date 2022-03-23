@@ -31,6 +31,7 @@ func TestNewBeta4(t *testing.T) {
 		yProb         float64
 		wantCDF       float64
 		xCDF          float64
+		wantVariance  float64
 		wantNumParams int
 	}{
 		{
@@ -47,6 +48,7 @@ func TestNewBeta4(t *testing.T) {
 			yProb:         7.5,
 			wantCDF:       0.1,
 			xCDF:          7.5,
+			wantVariance:  1.25,
 			wantNumParams: 4,
 		},
 		{
@@ -63,6 +65,7 @@ func TestNewBeta4(t *testing.T) {
 			yProb:         6.0,
 			wantCDF:       0.112213,
 			xCDF:          7.5,
+			wantVariance:  1.82547,
 			wantNumParams: 4,
 		},
 		{
@@ -79,6 +82,7 @@ func TestNewBeta4(t *testing.T) {
 			yProb:         8.0,
 			wantCDF:       0.072142,
 			xCDF:          7.5,
+			wantVariance:  3.255208,
 			wantNumParams: 4,
 		},
 		{
@@ -95,6 +99,7 @@ func TestNewBeta4(t *testing.T) {
 			yProb:         8.0,
 			wantCDF:       1.0,
 			xCDF:          7.5,
+			wantVariance:  0.045714,
 			wantNumParams: 4,
 		},
 		{
@@ -111,6 +116,7 @@ func TestNewBeta4(t *testing.T) {
 			yProb:         8.0,
 			wantCDF:       1.0,
 			xCDF:          7.5,
+			wantVariance:  0.034722,
 			wantNumParams: 4,
 		},
 		{
@@ -127,6 +133,7 @@ func TestNewBeta4(t *testing.T) {
 			yProb:         8.0,
 			wantCDF:       0.163862,
 			xCDF:          7.5,
+			wantVariance:  0.926051,
 			wantNumParams: 4,
 		},
 		{
@@ -143,6 +150,7 @@ func TestNewBeta4(t *testing.T) {
 			yProb:         0.3,
 			wantCDF:       1.0,
 			xCDF:          1.0,
+			wantVariance:  0.037042,
 			wantNumParams: 4,
 		},
 		{
@@ -159,6 +167,7 @@ func TestNewBeta4(t *testing.T) {
 			yProb:         0.5,
 			wantCDF:       0.5,
 			xCDF:          0.5,
+			wantVariance:  0.05,
 			wantNumParams: 4,
 		},
 		{
@@ -174,6 +183,7 @@ func TestNewBeta4(t *testing.T) {
 			wantProb:      1.5,
 			yProb:         9.5,
 			wantCDF:       0.5,
+			wantVariance:  0.05,
 			xCDF:          9.5,
 			wantNumParams: 4,
 		},
@@ -213,6 +223,9 @@ func TestNewBeta4(t *testing.T) {
 			gotCDF := beta4.CDF(tc.xCDF)
 			label = fmt.Sprintf("%s_cdf", name)
 			assertFloat64(t, label, gotCDF, tc.wantCDF, c.tolerance)
+			gotVariance := beta4.Variance()
+			label = fmt.Sprintf("%s_variance", name)
+			assertFloat64(t, label, gotVariance, tc.wantVariance, c.tolerance)
 		})
 	}
 }
