@@ -35,6 +35,14 @@ func NewBeta4(alpha, beta, min, max float64, src rand.Source) Beta4 {
 	}
 }
 
+// NewBeta4One creates a new four-parameter Beta distribution one time.
+// Thereafter, the same fixed value is always returned.
+func NewBeta4One(alpha, beta, min, max float64, src rand.Source) Fixed {
+	beta4 := NewBeta4(alpha, beta, min, max, src)
+	val := beta4.Rand()
+	return NewFixed(val)
+}
+
 func checkBeta4Parameters(min, max float64) {
 	if min >= max {
 		panic("pert: constraint of min < max violated")
