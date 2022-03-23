@@ -91,3 +91,13 @@ func (p PERT) Prob(y float64) float64 {
 func (p PERT) Rand() float64 {
 	return p.bd.Rand()*(p.max-p.min) + p.min
 }
+
+// StdDev returns the standard deviation of the PERT distribution.
+func (p PERT) StdDev() float64 {
+	return p.bd.StdDev() * (p.max - p.min)
+}
+
+// Variance returns the variance of the PERT probability distribution.
+func (p PERT) Variance() float64 {
+	return p.bd.Variance() * (p.max - p.min) * (p.max - p.min)
+}
