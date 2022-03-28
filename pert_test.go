@@ -13,6 +13,39 @@ import (
 	"golang.org/x/exp/rand"
 )
 
+func TestNewPERTOne(t *testing.T) {
+	c := struct {
+		tolerance float64
+	}{0.0001}
+	testCases := []struct {
+		min           float64
+		max           float64
+		mode          float64
+		seed          uint64
+		numIterations int
+	}{
+		{
+			min:           5.0,
+			max:           10.0,
+			mode:          5.0,
+			seed:          12,
+			numIterations: 5,
+		},
+	}
+	for i, tc := range testCases {
+		name := fmt.Sprintf("new_pert_one_%d", i)
+		t.Run(name, func(t *testing.T) {
+
+			src := rand.New(rand.NewSource(tc.seed))
+			pertOne := NewPERTOne(tc.min, tc.max, tc.mode, src)
+			num := pertOne.Rand()
+			for i := 0; i < tc.numIterations; i++ {
+				got := pertOne.Rand()
+				assertFloat64(t, name, got, num, c.tolerance)
+			}
+		})
+	}
+}
 func TestNewPERT(t *testing.T) {
 	c := struct {
 		tolerance float64

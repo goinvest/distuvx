@@ -12,7 +12,7 @@ import (
 	"golang.org/x/exp/rand"
 )
 
-func TestNewTriangle(t *testing.T) {
+func TestNewTriangleOne(t *testing.T) {
 	testCases := []struct {
 		lowerLimit    float64
 		upperLimit    float64

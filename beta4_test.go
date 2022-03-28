@@ -13,6 +13,42 @@ import (
 	"golang.org/x/exp/rand"
 )
 
+func TestNewBeta4One(t *testing.T) {
+	c := struct {
+		tolerance float64
+	}{0.0001}
+	testCases := []struct {
+		alpha         float64
+		beta          float64
+		min           float64
+		max           float64
+		seed          uint64
+		numIterations int
+	}{
+		{
+			alpha:         2.0,
+			beta:          2.0,
+			min:           5.0,
+			max:           10.0,
+			seed:          12,
+			numIterations: 5,
+		},
+	}
+	for i, tc := range testCases {
+		name := fmt.Sprintf("new_beta4_one_%d", i)
+		t.Run(name, func(t *testing.T) {
+
+			src := rand.New(rand.NewSource(tc.seed))
+			beta4One := NewBeta4One(tc.alpha, tc.beta, tc.min, tc.max, src)
+			num := beta4One.Rand()
+			for i := 0; i < tc.numIterations; i++ {
+				got := beta4One.Rand()
+				assertFloat64(t, name, got, num, c.tolerance)
+			}
+		})
+	}
+}
+
 func TestNewBeta4(t *testing.T) {
 	c := struct {
 		tolerance float64
